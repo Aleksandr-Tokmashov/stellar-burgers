@@ -14,10 +14,7 @@ const initialState: FeedsState = {
   data: { orders: [], total: 0, totalToday: 0 }
 };
 
-export const getFeeds = createAsyncThunk('feeds/getAll', async () => {
-  const response = await getFeedsApi();
-  return response;
-});
+export const getFeeds = createAsyncThunk('feeds/getAll', getFeedsApi);
 
 const feedsSlice = createSlice({
   name: 'feeds',

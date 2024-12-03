@@ -16,17 +16,11 @@ const initialState: profileOrdersState = {
   error: null
 };
 
-export const getOrders = createAsyncThunk('profile/getOrders', async () => {
-  const response = await getOrdersApi();
-  return response;
-});
+export const getOrders = createAsyncThunk('profile/getOrders', getOrdersApi);
 
 export const getOrderByNumber = createAsyncThunk(
   'profile/getOrder',
-  async (number: number) => {
-    const response = await getOrderByNumberApi(number);
-    return response;
-  }
+  getOrderByNumberApi
 );
 
 const profileOrdersSlice = createSlice({

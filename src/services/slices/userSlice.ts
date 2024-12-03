@@ -13,6 +13,7 @@ import { setCookie, deleteCookie } from '../../utils/cookie';
 
 type TUserState = {
   isAuthenticated: boolean;
+  isAuthChecked: boolean;
   data: TUser | null;
   error: string | null;
   isLoading: boolean;
@@ -22,6 +23,7 @@ type TUserState = {
 
 const initialState: TUserState = {
   isAuthenticated: false,
+  isAuthChecked: false,
   data: null,
   error: null,
   isLoading: false,
@@ -57,18 +59,9 @@ export const logoutUser = createAsyncThunk('user/logout', async () => {
   return response;
 });
 
-export const getUser = createAsyncThunk('auth/fetchUser', async () => {
-  const response = await getUserApi();
-  return response;
-});
+export const getUser = createAsyncThunk('auth/fetchUser', getUserApi);
 
-export const updateUser = createAsyncThunk(
-  'auth/updateUser',
-  async (user: Partial<TRegisterData>) => {
-    const response = await updateUserApi(user);
-    return response;
-  }
-);
+export const updateUser = createAsyncThunk('auth/updateUser', updateUserApi);
 
 export const userSlice = createSlice({
   name: 'user',
@@ -99,6 +92,7 @@ export const userSlice = createSlice({
       .addCase(loginUser.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message || null;
+        state.isAuthChecked = true;
       })
       .addCase(loginUser.fulfilled, (state, action) => {
         state.data = action.payload.user;
@@ -106,6 +100,7 @@ export const userSlice = createSlice({
         state.refreshToken = action.payload.refreshToken;
         state.isLoading = false;
         state.isAuthenticated = true;
+        state.isAuthChecked = true;
       })
 
       .addCase(logoutUser.pending, (state) => {
@@ -130,11 +125,13 @@ export const userSlice = createSlice({
       .addCase(getUser.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message || null;
+        state.isAuthChecked = true;
       })
       .addCase(getUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.data = action.payload.user;
         state.isAuthenticated = true;
+        state.isAuthChecked = true;
       })
 
       .addCase(updateUser.pending, (state) => {
@@ -154,7 +151,8 @@ export const userSlice = createSlice({
     getEmailSelector: (state) => state.data?.email || '',
     authenticatedSelector: (state) => state.isAuthenticated,
     isLoadingSelector: (state) => state.isLoading,
-    userDataSelector: (state) => state.data
+    userDataSelector: (state) => state.data,
+    isAuthCheckedSelector: (state) => state.isAuthChecked
   }
 });
 export const {
@@ -162,6 +160,7 @@ export const {
   getEmailSelector,
   authenticatedSelector,
   isLoadingSelector,
-  userDataSelector
+  userDataSelector,
+  isAuthCheckedSelector
 } = userSlice.selectors;
 export default userSlice.reducer;

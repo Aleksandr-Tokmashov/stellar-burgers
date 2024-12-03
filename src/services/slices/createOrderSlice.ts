@@ -15,10 +15,7 @@ const initialState: OrderState = {
   response: null
 };
 
-export const orderBurger = createAsyncThunk('order', async (data: string[]) => {
-  const response = await orderBurgerApi(data);
-  return response;
-});
+export const orderBurger = createAsyncThunk('order', orderBurgerApi);
 
 const createOrderSlice = createSlice({
   name: 'createOrder',
