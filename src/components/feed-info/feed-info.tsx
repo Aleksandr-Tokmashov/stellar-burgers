@@ -2,12 +2,12 @@ import { FC } from 'react';
 
 import { TOrder } from '@utils-types';
 import { FeedInfoUI } from '../ui/feed-info';
-import { useSelector } from '../../services/store';
+import { useSelector } from '../../services/store/store';
 import {
   getFeedsSelector,
   getTotalSelector,
   getTotalTodaySelector
-} from '../../services/slices/feedsSlice';
+} from '../../services/slices/feedsSlice/feedsSlice';
 
 const getOrders = (orders: TOrder[], status: string): number[] =>
   orders

@@ -15,12 +15,12 @@ import styles from './app.module.css';
 import { AppHeader, Modal, OrderInfo, IngredientDetails } from '@components';
 
 import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
-import { useDispatch, useSelector } from '../../services/store';
+import { useDispatch, useSelector } from '../../services/store/store';
 import { useEffect } from 'react';
-import { getIngredients } from '../../services/slices/ingredientsSlice';
+import { getIngredients } from '../../services/slices/ingredientsSlice/ingredientsSlice';
 import { ProtectedRoute } from '../../components/protected-route';
-import { getUser } from '../../services/slices/userSlice';
-import { getFeeds } from '../../services/slices/feedsSlice';
+import { getUser } from '../../services/slices/userSlice/userSlice';
+import { getFeeds } from '../../services/slices/feedsSlice/feedsSlice';
 
 function App() {
   const dispatch = useDispatch();

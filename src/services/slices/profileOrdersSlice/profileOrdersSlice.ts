@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getOrdersApi, getOrderByNumberApi } from '@api';
+import { getOrdersApi, getOrderByNumberApi } from '../../../utils/burger-api';
 import { TOrder } from '@utils-types';
 
 interface profileOrdersState {
@@ -9,7 +9,7 @@ interface profileOrdersState {
   error: string | null;
 }
 
-const initialState: profileOrdersState = {
+export const initialState: profileOrdersState = {
   orders: null,
   orderByNumber: null,
   isLoading: false,

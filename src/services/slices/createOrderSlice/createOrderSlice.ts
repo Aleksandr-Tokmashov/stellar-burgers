@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { orderBurgerApi, TNewOrderResponse } from '@api';
+import { orderBurgerApi, TNewOrderResponse } from '../../../utils/burger-api';
 
 interface OrderState {
   ingredients: string[] | null;
@@ -8,7 +8,7 @@ interface OrderState {
   response: TNewOrderResponse | null;
 }
 
-const initialState: OrderState = {
+export const initialState: OrderState = {
   ingredients: null,
   isLoading: false,
   error: null,

@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getIngredientsApi } from '@api';
+import { getIngredientsApi } from '../../../utils/burger-api';
 import { TIngredient } from '@utils-types';
 
 interface IngredientsState {
@@ -8,7 +8,7 @@ interface IngredientsState {
   ingredients: TIngredient[];
 }
 
-const initialState: IngredientsState = {
+export const initialState: IngredientsState = {
   isIngredientsLoading: false,
   error: '',
   ingredients: []

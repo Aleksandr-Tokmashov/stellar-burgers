@@ -1,8 +1,8 @@
-import { useSelector } from '../../services/store';
+import { useSelector } from '../../services/store/store';
 import {
   userDataSelector,
   isAuthCheckedSelector
-} from '../../services/slices/userSlice';
+} from '../../services/slices/userSlice/userSlice';
 import { Navigate, useLocation } from 'react-router';
 
 type ProtectedRouteProps = {

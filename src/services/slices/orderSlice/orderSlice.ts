@@ -64,9 +64,11 @@ export const {
   moveIngredientDown,
   moveIngredientUp
 } = orderSlice.actions;
+
 export const {
   getOrderIngredientsSelector,
   getBunsSelector,
   getIngredientsIdSelector
 } = orderSlice.selectors;
+
 export default orderSlice.reducer;

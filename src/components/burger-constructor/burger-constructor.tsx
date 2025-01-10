@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from '../../services/store';
+import { useSelector, useDispatch } from '../../services/store/store';
 import { FC, useMemo, useState, useEffect } from 'react';
 import { TConstructorIngredient, TIngredient, TOrder } from '@utils-types';
 import { BurgerConstructorUI } from '@ui';
@@ -7,15 +7,15 @@ import {
   getBunsSelector,
   getIngredientsIdSelector,
   removeAllIngredients
-} from '../../services/slices/orderSlice';
+} from '../../services/slices/orderSlice/orderSlice';
 
 import {
   orderBurger,
   orderResponseSelector,
   isLoadingSelector,
   resetOrder
-} from '../../services/slices/createOrderSlice';
-import { authenticatedSelector } from '../../services/slices/userSlice';
+} from '../../services/slices/createOrderSlice/createOrderSlice';
+import { authenticatedSelector } from '../../services/slices/userSlice/userSlice';
 import { useNavigate } from 'react-router-dom';
 
 export const BurgerConstructor: FC = () => {

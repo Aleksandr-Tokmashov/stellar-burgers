@@ -3,8 +3,11 @@ import { useLocation } from 'react-router-dom';
 
 import { BurgerIngredientUI } from '@ui';
 import { TBurgerIngredientProps } from './type';
-import { useDispatch } from '../../services/store';
-import { addIngredient, addBun } from '../../services/slices/orderSlice';
+import { useDispatch } from '../../services/store/store';
+import {
+  addIngredient,
+  addBun
+} from '../../services/slices/orderSlice/orderSlice';
 import { nanoid } from 'nanoid';
 
 export const BurgerIngredient: FC<TBurgerIngredientProps> = memo(

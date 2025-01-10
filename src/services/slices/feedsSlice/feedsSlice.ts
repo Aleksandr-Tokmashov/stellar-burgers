@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getFeedsApi } from '@api';
+import { getFeedsApi } from '../../../utils/burger-api';
 import { TOrder } from '@utils-types';
 
 interface FeedsState {
@@ -8,7 +8,7 @@ interface FeedsState {
   data: { orders: TOrder[]; total: number; totalToday: number };
 }
 
-const initialState: FeedsState = {
+export const initialState: FeedsState = {
   isFeedsLoading: false,
   error: '',
   data: { orders: [], total: 0, totalToday: 0 }
@@ -49,4 +49,5 @@ export const {
   getTotalTodaySelector,
   isLoadingSelector
 } = feedsSlice.selectors;
+
 export default feedsSlice.reducer;

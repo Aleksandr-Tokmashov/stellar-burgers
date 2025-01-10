@@ -2,14 +2,14 @@ import { forwardRef, useMemo } from 'react';
 import { TIngredientsCategoryProps } from './type';
 import { TIngredient } from '@utils-types';
 import { IngredientsCategoryUI } from '../ui/ingredients-category';
-import { useSelector, useDispatch } from '../../services/store';
+import { useSelector, useDispatch } from '../../services/store/store';
 
 import {
   getOrderIngredientsSelector,
   getBunsSelector,
   getIngredientsIdSelector,
   removeAllIngredients
-} from '../../services/slices/orderSlice';
+} from '../../services/slices/orderSlice/orderSlice';
 
 export const IngredientsCategory = forwardRef<
   HTMLUListElement,

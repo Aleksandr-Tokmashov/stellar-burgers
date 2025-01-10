@@ -8,8 +8,8 @@ import {
   logoutApi,
   getUserApi,
   updateUserApi
-} from '@api';
-import { setCookie, deleteCookie } from '../../utils/cookie';
+} from '../../../utils/burger-api';
+import { setCookie, deleteCookie } from '../../../utils/cookie';
 
 type TUserState = {
   isAuthenticated: boolean;
@@ -21,7 +21,7 @@ type TUserState = {
   accessToken: string | null;
 };
 
-const initialState: TUserState = {
+export const initialState: TUserState = {
   isAuthenticated: false,
   isAuthChecked: false,
   data: null,
