@@ -11,6 +11,16 @@ describe('Проверка работы приложения', () => {
       cy.get('[data-cy="643d69a5c3f7b9001cfa093c"]').as('bun');
       cy.get('[data-cy="643d69a5c3f7b9001cfa0941"]').as('main');
       cy.get('[data-cy="643d69a5c3f7b9001cfa0942"]').as('sauce');
+
+      cy.setCookie('accessToken', 'test');
+      cy.window().then((window) => {
+        window.localStorage.setItem('refreshToken', 'test');
+      });
+    });
+
+    afterEach(() => {
+      cy.clearCookie('accessToken');
+      window.localStorage.removeItem('refreshToken');
     });
 
     it('Добавление ингредиента', () => {
@@ -22,9 +32,19 @@ describe('Проверка работы приложения', () => {
       cy.get('@sauce').contains('Добавить').click();
       cy.get('@main').contains('Добавить').click();
 
-      cy.get('[data-cy="topBun"]');
-      cy.get('[data-cy="ingredients"]').children('li').should('have.length', 2);
-      cy.get('[data-cy="bottomBun"]');
+      cy.get('[data-cy="topBun"]').should(
+        'contain.text',
+        'Краторная булка N-200i'
+      );
+      cy.get('[data-cy="ingredients"]').should(
+        'contain.text',
+        'Биокотлета из марсианской Магнолии'
+      );
+      cy.get('[data-cy="ingredients"]').should('contain.text', 'Соус Spicy-X');
+      cy.get('[data-cy="bottomBun"]').should(
+        'contain.text',
+        'Краторная булка N-200i'
+      );
     });
 
     describe('Тестирование модального окна ингредиента', () => {
@@ -36,6 +56,10 @@ describe('Проверка работы приложения', () => {
         cy.get('@main').click();
 
         cy.get('[data-cy="modal"]').should('be.visible');
+        cy.get('[data-cy="modal"]').should(
+          'contain.text',
+          'Биокотлета из марсианской Магнолии'
+        );
       });
 
       it('Закрытие модального окна кликом на кнопку', () => {
@@ -62,12 +86,8 @@ describe('Проверка работы приложения', () => {
         fixture: 'order.json'
       }).as('order');
 
+      cy.visit('/');
       cy.wait('@getUser');
-
-      cy.setCookie('accessToken', 'test');
-      cy.window().then((window) => {
-        window.localStorage.setItem('refreshToken', 'test');
-      });
 
       cy.get('@bun').contains('Добавить').click();
       cy.get('@sauce').contains('Добавить').click();
@@ -84,9 +104,6 @@ describe('Проверка работы приложения', () => {
       cy.get('[data-cy="topBunEmpty"]').contains('Выберите булки');
       cy.get('[data-cy="ingredientsEmpty"]').contains('Выберите начинку');
       cy.get('[data-cy="bottomBunEmpty"]').contains('Выберите булки');
-
-      cy.clearCookie('accessToken');
-      window.localStorage.removeItem('refreshToken');
     });
   });
 });

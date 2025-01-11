@@ -6,17 +6,9 @@ import userReducer, {
   updateUser,
   initialState
 } from './userSlice';
+import { userData } from './mockData';
 
 describe('тесты редюсера userSlice', () => {
-  const userData = {
-    user: {
-      email: 'test@test.com',
-      name: 'test'
-    },
-    refreshToken: 'test',
-    accessToken: 'test'
-  };
-
   describe('тесты регистрации', () => {
     test('экшен начала запроса', () => {
       const action = { type: registerUser.pending.type };

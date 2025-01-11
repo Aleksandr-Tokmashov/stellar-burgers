@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for services/slices/feedsSlice/feedsSlice.ts</title>
+    <title>Code coverage report for services/slices/feedsSlice/mockData.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">services/slices/feedsSlice</a> feedsSlice.ts</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">services/slices/feedsSlice</a> mockData.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>53/53</span>
+                <span class='fraction'>48/48</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">20% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/5</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>53/53</span>
+                <span class='fraction'>48/48</span>
             </div>
         
             
@@ -111,12 +111,7 @@
 <a name='L46'></a><a href='#L46'>46</a>
 <a name='L47'></a><a href='#L47'>47</a>
 <a name='L48'></a><a href='#L48'>48</a>
-<a name='L49'></a><a href='#L49'>49</a>
-<a name='L50'></a><a href='#L50'>50</a>
-<a name='L51'></a><a href='#L51'>51</a>
-<a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L49'></a><a href='#L49'>49</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -139,19 +134,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -169,59 +151,62 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getFeedsApi } from '../../../utils/burger-api';
-import { TOrder } from '@utils-types';
-&nbsp;
-interface FeedsState {
-  isFeedsLoading: boolean;
-  error: string | undefined;
-  data: { orders: TOrder[]; total: number; totalToday: number };
-}
-&nbsp;
-export const initialState: FeedsState = {
-  isFeedsLoading: false,
-  error: '',
-  data: { orders: [], total: 0, totalToday: 0 }
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export const feeds = {
+  orders: [
+    {
+      _id: '677fb544133acd001be49308',
+      status: 'done',
+      name: 'Экзо-плантаго краторный традиционный-галактический астероидный бургер',
+      createdAt: '2025-01-09T11:38:44.859Z',
+      updatedAt: '2025-01-09T11:38:45.806Z',
+      number: 65065,
+      ingredients: [
+        '643d69a5c3f7b9001cfa093c',
+        '643d69a5c3f7b9001cfa0949',
+        '643d69a5c3f7b9001cfa094a',
+        '643d69a5c3f7b9001cfa0944',
+        '643d69a5c3f7b9001cfa093c'
+      ]
+    },
+    {
+      _id: '677fb529133acd001be49307',
+      status: 'done',
+      name: 'Альфа-сахаридный краторный био-марсианский бургер',
+      createdAt: '2025-01-09T11:38:17.077Z',
+      updatedAt: '2025-01-09T11:38:17.855Z',
+      number: 65064,
+      ingredients: [
+        '643d69a5c3f7b9001cfa093c',
+        '643d69a5c3f7b9001cfa0941',
+        '643d69a5c3f7b9001cfa0948',
+        '643d69a5c3f7b9001cfa093c'
+      ]
+    },
+    {
+      _id: '677fb319133acd001be49305',
+      status: 'done',
+      name: 'Флюоресцентный люминесцентный бургер',
+      createdAt: '2025-01-09T11:29:29.446Z',
+      updatedAt: '2025-01-09T11:29:30.446Z',
+      number: 65063,
+      ingredients: [
+        '643d69a5c3f7b9001cfa093d',
+        '643d69a5c3f7b9001cfa093e',
+        '643d69a5c3f7b9001cfa093d'
+      ]
+    }
+  ],
+  total: 3,
+  totalToday: 3
 };
-&nbsp;
-export const getFeeds = createAsyncThunk('feeds/getAll', getFeedsApi);
-&nbsp;
-const feedsSlice = createSlice({
-  name: 'feeds',
-  initialState,
-  reducers: {},
-  extraReducers: (builder) =&gt; {
-    builder
-      .addCase(getFeeds.pending, (state) =&gt; {
-        state.isFeedsLoading = true;
-        state.error = '';
-      })
-      .addCase(getFeeds.rejected, (state, action) =&gt; {
-        state.isFeedsLoading = false;
-        state.error = action.error.message;
-      })
-      .addCase(getFeeds.fulfilled, (state, action) =&gt; {
-        state.isFeedsLoading = false;
-        state.data = action.payload;
-      });
-  },
-  selectors: {
-    getFeedsSelector: <span class="fstat-no" title="function not covered" >(state) =&gt; state.</span>data.orders,
-    getTotalSelector: <span class="fstat-no" title="function not covered" >(state) =&gt; state.</span>data.total,
-    getTotalTodaySelector: <span class="fstat-no" title="function not covered" >(state) =&gt; state.</span>data.totalToday,
-    isLoadingSelector: <span class="fstat-no" title="function not covered" >(state) =&gt; state.</span>isFeedsLoading
-  }
-});
-&nbsp;
-export const {
-  getFeedsSelector,
-  getTotalSelector,
-  getTotalTodaySelector,
-  isLoadingSelector
-} = feedsSlice.selectors;
-&nbsp;
-export default feedsSlice.reducer;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
