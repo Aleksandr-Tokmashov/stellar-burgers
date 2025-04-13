@@ -44,6 +44,6 @@ Stellar burgers - это SPA-приложение для создания кас
 ## Запуск тестов
 - Тесты на Jest: \
 `npm run test`
- Тесты на Cypress: \
+- Тесты на Cypress: \
 `npm run cypress:open`
 
